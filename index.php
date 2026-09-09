@@ -1,33 +1,23 @@
 <?php
 
-class Box {
-    public $length;
-    protected $width;
-    private $height;
-    public $isOpen = false;
-    public $hasBeenOpened = false;
+class Cat {
+    use MakeSound;
+}
 
-    public function open() {
-        $this->isOpen = true;
-        $this->hasBeenOpened = true;
-    }
+class Dog {
+    use HasSmell, MakeSound;
+}
 
-    public function close() {
-        $this->isOpen = false;
-    }
-
-    public function volume() {
-        return $this->length * $this->width * $this->height;
+trait hasSmell {
+    public $smell;
+    public function sniff() {
+        return 'Smells like' . $this->smell;
     }
 }
 
-class MetalBox extends Box {
-    public $weight;
-
-    public function mass() {
-        return $this->weight * $this->volume();
+trait MakeSound {
+    public $sound;
+    public function makeSound() {
+        return $this->sound;
     }
 }
-
-$metal1 = new MetalBox();
-var_dump($metal1);

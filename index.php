@@ -2,7 +2,7 @@
 
 class Box {
     public $length;
-    protected $width;
+    pr $width;
     private $height;
     public $isOpen = false;
     public $hasBeenOpened = false;

@@ -1,33 +1,38 @@
 <?php
 
-function hello() {
-    var_dump('Hello');
-}
+class Box {
+    public $length;
+    public $width;
+    public $height;
+    public $isOpen = false;
+    public $hasBeenOpened = false;
 
-function helloName() {
-    var_dump("Hello, $name!");
-}
-
-helloName('Karl');
-helloName('Kundla');
-
-$numbers = [1, 2, 3, 4, 5];
-array_map(function ($number) {
-    return $number * $number;
-}, $numbers);
-$squares = array_map(fn($number) => $number * $number, $numbers);
-var_dump($squares);
-
-function cube($a) {
-    if($a < 0) {
-        return 'Negative number';
+    public function open() {
+        $this->isOpen = true;
+        $this->hasBeenOpened = true;
     }
-    return $a * $a * $a;
-    var_dump('This will never be executed');
+
+    public function close() {
+        $this->isOpen = false;
+    }
+
+    public function volume() {
+        return $this->length * $this->width * $this->height;
+    }
 }
 
-var_dump(cube(4));
+$box1 = new Box();
+$box1->length = 30;
+$box1->width = 10;
+$box1->height = 20;
+$box1->open();
+var_dump($box1);
+var_dump($box1->volume());
 
-$answer = cube(5);
-$text = "Cube of 5 is $answer!";
-echo $text;
+$box2 = new Box();
+$box2->length = 50;
+$box2->width = 40;
+$box2->height = 30;
+$box2->open();
+var_dump($box2);
+var_dump($box2->volume());

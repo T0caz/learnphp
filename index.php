@@ -21,18 +21,13 @@ class Box {
     }
 }
 
-$box1 = new Box();
-$box1->length = 30;
-$box1->width = 10;
-$box1->height = 20;
-$box1->open();
-var_dump($box1);
-var_dump($box1->volume());
+$num1 = 1;
+$num2 = $num1;
+$num1 = 2;
+var_dump($num1, $num2);
 
-$box2 = new Box();
-$box2->length = 50;
-$box2->width = 40;
-$box2->height = 30;
-$box2->open();
-var_dump($box2);
-var_dump($box2->volume());
+$box1 = new Box();
+$box1->width = 1;
+$box2 = $box1;
+$box2->width = 2;
+var_dump($box1->width, $box2->width);

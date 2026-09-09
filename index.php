@@ -2,8 +2,8 @@
 
 class Box {
     public $length;
-    public $width;
-    public $height;
+    protected $width;
+    private $height;
     public $isOpen = false;
     public $hasBeenOpened = false;
 
@@ -21,13 +21,13 @@ class Box {
     }
 }
 
-$num1 = 1;
-$num2 = $num1;
-$num1 = 2;
-var_dump($num1, $num2);
+class MetalBox extends Box {
+    public $weight;
 
-$box1 = new Box();
-$box1->width = 1;
-$box2 = $box1;
-$box2->width = 2;
-var_dump($box1->width, $box2->width);
+    public function mass() {
+        return $this->weight * $this->volume();
+    }
+}
+
+$metal1 = new MetalBox();
+var_dump($metal1);

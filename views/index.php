@@ -1,5 +1,5 @@
 <?php
-$title = 'Wolrd';
+$title = 'World';
 $posts = [
   ['title' => 'Some world title 1',
    'content' => 'Some world content 1', 

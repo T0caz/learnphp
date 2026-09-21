@@ -109,4 +109,9 @@ class PublicController {
 
         view('technology', compact('title', 'posts'));
     }
+
+    public function forms() {
+        $title = 'Forms';
+        view('forms', compact('title'));
+    }
 }

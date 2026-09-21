@@ -9,5 +9,5 @@ Router::addRoute('/us', [PublicController::class, 'us']);
 
 Router::addRoute('/technology', [PublicController::class, 'technology']);
 
-
+Router::addRoute('/forms', [PublicController::class, 'forms']);
 ?>

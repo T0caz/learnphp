@@ -3,7 +3,7 @@
   <?php if(isset($_GET['name']) && isset($_GET['age'])): ?> 
   <h1>Hello <?=$_GET['name']?? 'Nameless' ?>! You are <?=$_GET['age']?? 'Infinite' ?> years old!</h1>
   <?php endif; ?>
-  <form>
+  <form action="/forms" method="POST">
     <label>
       Name:
     <input name="name" type="text" placeholder="name">

@@ -114,4 +114,9 @@ class PublicController {
         $title = 'Forms';
         view('forms', compact('title'));
     }
+
+    public function answer() {
+        dump($_GET);
+        dump($_POST);
+    }
 }

@@ -2,43 +2,31 @@
 
 namespace App\Controllers;
 
-class PublicController {
 
-    public function index() {
-        $title = 'World';
-        $posts = [
-            [
-                'title' => 'Some world title 1',
-                'content' => 'Some world content 1',
-                'date' => 'January 1, 2021',
-                'author' => 'Cars'
-            ],
+use PDO;
+use PDOException;
 
-            [
-                'title' => 'Some world title 2',
-                'content' => 'Some world content 2',
-                'date' => 'January 2, 2021',
-                'author' => 'Kermo'
-            ],
 
-            [
-                'title' => 'Some world title 3',
-                'content' => 'Some world content 3',
-                'date' => 'January 3, 2021',
-                'author' => 'Priit'
-            ],
-
-            [
-                'title' => 'Some world title 4',
-                'content' => 'Some world content 4',
-                'date' => 'January 4, 2021',
-                'author' => 'Joonas'
-            ],
-        ];
-
-        view('index', compact('title', 'posts'));
+class PublicController
+{
+    public function index()
+    {
+    try {
+        $conn = new PDO("sqlite:" . __DIR__ . '/../../db.sqlite');
+        // set the PDO error mode to exception
+        $conn->setAttribute (PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION); 
+        $sql = "SELECT * FROM articles";
+        $result = $conn->query($sql);
+        $rows = $result->fetchAll();
+        dump($rows);
+    
+    }catch (PDOException $e) {
+        echo "Connection failed: ". $e->getMessage();
+    
     }
-
+    // $title='World';
+    // view('index', compact('title', 'posts'));
+}
     public function us() {
         $title = 'U.S.';
         $posts = [

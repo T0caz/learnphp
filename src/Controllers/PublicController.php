@@ -2,31 +2,20 @@
 
 namespace App\Controllers;
 
-
-use PDO;
-use PDOException;
-
+use App\Models\Article;
+use App\Models\User;
 
 class PublicController
 {
     public function index()
     {
-    try {
-        $conn = new PDO("sqlite:" . __DIR__ . '/../../db.sqlite');
-        // set the PDO error mode to exception
-        $conn->setAttribute (PDO::ATTR_ERRMODE, PDO:: ERRMODE_EXCEPTION); 
-        $sql = "SELECT * FROM articles";
-        $result = $conn->query($sql);
-        $rows = $result->fetchAll();
-        dump($rows);
-    
-    }catch (PDOException $e) {
-        echo "Connection failed: ". $e->getMessage();
-    
+        $articles = Article::all();
+        dump($articles);
+        $users = User::all();
+        dump($users);
+        // $title = 'World';
+        // view('index', compact('title', 'posts'));
     }
-    // $title='World';
-    // view('index', compact('title', 'posts'));
-}
     public function us() {
         $title = 'U.S.';
         $posts = [

@@ -10,7 +10,7 @@ abstract class Model {
 
     public static function all() {
         $db = new DB();
-        return $db->all(self::$table, static::class);
+        return $db->all(static::$table, static::class);
     }
 }
 

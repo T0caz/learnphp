@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/../partials/header.php'; ?>
 <main class="container">
-  <form action="/admin/articles" method="POST">
+  <form action="/admin/articles" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
       <input name="title" type="text" class="form-control" id="title" placeholder="Some cool title">
@@ -15,7 +15,7 @@
     </div>
     <div class="mb-3">
       <label for="author" class="form-label">Author</label>
-      <input name="author" type="text" class="form-control" id="author" placeholder="Some cool author">
+      <input name="author" type="file" class="form-control" id="author" placeholder="Some cool author">
     </div>
     <button type="submit" class="btn btn-primary">Create</button>
   </form>

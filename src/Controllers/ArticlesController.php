@@ -19,6 +19,8 @@ class ArticlesController
     }
 
     public function store() {
+        move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../../public/' . $_FILES['image']['name']);
+        dd($_POST, $_FILES);
         $article = new Article();
         $article->title = $_POST['title'];
         $article->body = $_POST['body'];

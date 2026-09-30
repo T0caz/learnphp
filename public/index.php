@@ -27,7 +27,6 @@ if($match) {
         $method = $match['action'][1];
         $controller->$method();
     }
-    
 } else {
     echo 404;
 }
